@@ -6,9 +6,16 @@ environment = {}
 
 def format_value_for_output(value):
     """Format value for output, converting booleans to Hebrew."""
+    # Add RTL mark to ensure proper text direction
+    rtl_mark = "\u200F"
+    
     if isinstance(value, bool):
-        return "אמת" if value else "שקר"
-    return value
+        return f"{rtl_mark}אמת" if value else f"{rtl_mark}שקר"
+    elif isinstance(value, str):
+        # For strings, add RTL mark
+        return f"{rtl_mark}{value}"
+    else:
+        return f"{rtl_mark}{value}"
 
 def evaluate_node(node):
     if isinstance(node, NumberNode):

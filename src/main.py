@@ -5,20 +5,45 @@ from lexer import tokenize
 from parser import parse
 from interpreter import interpret
 
+# Try to import the RTL console setup if on Windows
+try:
+    from set_console_rtl import set_console_rtl_mode
+    set_console_rtl_mode()
+except ImportError:
+    pass  # Not critical if it fails
+
+# Import the RTL formatter
+try:
+    from rtl_formatter import format_aron_code, add_rtl_marks
+except ImportError:
+    # Fallback if the formatter is not available
+    def format_aron_code(code): return code
+    def add_rtl_marks(code): return code
+
 def run_aron_file(filepath, debug=False):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             code = f.read()
         
-        print(f"--- Executing Aron file: {filepath} ---")
+        # Format code for better RTL display
+        formatted_code = format_aron_code(code)
+        
+        # Add RTL mark to ensure proper direction
+        print("\u200F--- Executing Aron file: {filepath} ---")
+        
+        # Optional: Display the formatted code
+        if debug:
+            print("\u200F--- Formatted Source Code ---")
+            print(add_rtl_marks(formatted_code))
+            print("\u200F---------------------------")
         
         try:
-            tokens = tokenize(code)
+            tokens = tokenize(code)  # Still tokenize the original code
             
             if debug:
-                print("DEBUG: Tokens generated:")
+                print("\u200FDEBUG: Tokens generated:")
                 for token in tokens:
-                    print(f"  {token}")
+                    print(f"\u200F  {token}")
             
             try:
                 ast_nodes = parse(tokens)

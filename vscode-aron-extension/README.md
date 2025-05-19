@@ -9,6 +9,23 @@ This extension provides language support for the Aron (אהרן) programming lan
 - Hover information for Aron keywords
 - Run Aron files directly from the editor context menu
 - Language configuration (bracket matching, comment toggling)
+- Right-to-Left (RTL) support for Hebrew language
+
+## RTL Support
+
+As Aron is a Hebrew-based programming language, this extension automatically enables Right-to-Left (RTL) mode in the editor when an Aron file is opened. You can toggle between RTL and LTR modes by:
+
+- Right-clicking on the editor and selecting "Toggle RTL mode for Aron" 
+- Using the Command Palette (Ctrl+Shift+P) and typing "Toggle RTL mode for Aron"
+
+### RTL Formatting
+
+To improve readability of Aron code in RTL mode, you can format your code with proper RTL indentation:
+
+- Right-click on the editor and select "Format Aron File for RTL"
+- Using the Command Palette (Ctrl+Shift+P) and typing "Format Aron File for RTL"
+
+This will format the code with proper indentation for RTL display, making it more readable in Hebrew.
 
 ## How to Use
 

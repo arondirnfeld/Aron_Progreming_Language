@@ -3,6 +3,11 @@
   "displayName": "Aron Language Support",
   "description": "Language support for the Aron programming language",
   "version": "0.0.1",
+  "publisher": "aron-language",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/aron-language"
+  },
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -38,6 +43,14 @@
       {
         "command": "aron.run",
         "title": "Run Aron File"
+      },
+      {
+        "command": "aron.toggleRTL",
+        "title": "Toggle RTL mode for Aron"
+      },
+      {
+        "command": "aron.formatRTL",
+        "title": "Format Aron File for RTL"
       }
     ],
     "menus": {
@@ -45,6 +58,16 @@
         {
           "when": "resourceExtname == .aron",
           "command": "aron.run",
+          "group": "aron"
+        },
+        {
+          "when": "resourceExtname == .aron",
+          "command": "aron.toggleRTL",
+          "group": "aron"
+        },
+        {
+          "when": "resourceExtname == .aron",
+          "command": "aron.formatRTL",
           "group": "aron"
         }
       ]

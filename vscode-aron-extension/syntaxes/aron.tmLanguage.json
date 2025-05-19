@@ -22,6 +22,9 @@
         },
         {
             "include": "#numbers"
+        },
+        {
+            "include": "#directionality"
         }
     ],
     "repository": {
@@ -87,8 +90,7 @@
                     "match": "[א-ת][א-ת0-9_]*"
                 }
             ]
-        },
-        "numbers": {
+        },        "numbers": {
             "patterns": [
                 {
                     "name": "constant.numeric.integer.aron",
@@ -97,6 +99,14 @@
                 {
                     "name": "constant.numeric.float.aron",
                     "match": "\\b[0-9]+\\.[0-9]+\\b"
+                }
+            ]
+        },
+        "directionality": {
+            "patterns": [
+                {
+                    "name": "meta.rtl.aron",
+                    "match": "[א-ת]+"
                 }
             ]
         }
