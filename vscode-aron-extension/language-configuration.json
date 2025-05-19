@@ -1,0 +1,17 @@
+{
+    "comments": {
+        "lineComment": "#"
+    },
+    "brackets": [
+        ["(", ")"]
+    ],
+    "autoClosingPairs": [
+        { "open": "(", "close": ")" },
+        { "open": "\"", "close": "\"" }
+    ],
+    "surroundingPairs": [
+        ["(", ")"],
+        ["\"", "\""]
+    ],
+    "wordPattern": "[א-ת][א-ת0-9_]*"
+}

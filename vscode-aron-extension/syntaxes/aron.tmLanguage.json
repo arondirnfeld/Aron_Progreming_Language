@@ -1,0 +1,105 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Aron",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#constants"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#numbers"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.number-sign.aron",
+                    "match": "#.*$"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.aron",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.aron",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.aron",
+                    "match": "\\b(אם|אחרת|סוף)\\b"
+                },
+                {
+                    "name": "keyword.other.aron",
+                    "match": "\\b(קבע|הדפס)\\b"
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.aron",
+                    "match": "\\b(אמת|שקר)\\b"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.assignment.aron",
+                    "match": "="
+                },
+                {
+                    "name": "keyword.operator.arithmetic.aron",
+                    "match": "\\+|\\-|\\*|\\/"
+                },
+                {
+                    "name": "keyword.operator.comparison.aron",
+                    "match": "==|!=|<|>|<=|>="
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.other.aron",
+                    "match": "[א-ת][א-ת0-9_]*"
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.integer.aron",
+                    "match": "\\b[0-9]+\\b"
+                },
+                {
+                    "name": "constant.numeric.float.aron",
+                    "match": "\\b[0-9]+\\.[0-9]+\\b"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.aron"
+}

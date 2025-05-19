@@ -1,0 +1,67 @@
+{
+  "name": "aron-language-support",
+  "displayName": "Aron Language Support",
+  "description": "Language support for the Aron programming language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:aron"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "aron",
+        "aliases": [
+          "Aron",
+          "aron"
+        ],
+        "extensions": [
+          ".aron"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "aron",
+        "scopeName": "source.aron",
+        "path": "./syntaxes/aron.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "aron.run",
+        "title": "Run Aron File"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceExtname == .aron",
+          "command": "aron.run",
+          "group": "aron"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "echo Compiled",
+    "watch": "echo Watching",
+    "test": "echo Test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "vscode-test": "^1.6.1"
+  }
+}
