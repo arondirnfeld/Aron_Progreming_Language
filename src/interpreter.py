@@ -79,7 +79,14 @@ def interpret(ast_nodes):
         
         if isinstance(node, PrintNode):
             value_to_print = evaluate_node(node.value_node)
-            print(format_value_for_output(value_to_print))
+            formatted_value = format_value_for_output(value_to_print)
+            
+            # Handle Hebrew strings by printing as raw values
+            if isinstance(formatted_value, str):
+                print(formatted_value)
+            else:
+                print(formatted_value)
+                
             result = value_to_print
 
         elif isinstance(node, AssignNode):
